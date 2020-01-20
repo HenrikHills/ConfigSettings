@@ -1,5 +1,5 @@
  /*
-Show navigation buttons when cursor is over the toolbar area
+Hide/Show navigation buttons when cursor is over the toolbar area
 */
 :root:not([customizing]) :hover > #nav-bar toolbarbutton,
 :root:not([customizing]) #navigator-toolbox:focus-within #nav-bar toolbarbutton,
@@ -17,9 +17,11 @@ Show navigation buttons when cursor is over the toolbar area
 }
 
 
-/* Show bookmarks when cursor is over the toolbar area */
+/* 
+Hide/Show bookmarks when cursor is over the toolbar area 
+*/
 #navigator-toolbox:hover > #PersonalToolbar{
-  transition-delay: 1s !important;
+  transition-delay: 250ms !important;
   transform: rotateX(0);   
 }
 
@@ -33,6 +35,7 @@ Show navigation buttons when cursor is over the toolbar area
   transform: rotateX(90deg);
   transform-origin: top;
   transition: transform 100ms linear 100ms !important;
+  transition-delay: 2000ms !important;
   z-index: 1;
 }
 
@@ -89,7 +92,7 @@ Make the hover-thing (down left corner) turn black instead of white
 */
 #statuspanel-label {
     background-color: #383839 !important;
-    border: 1px none black !important;
+    border: 1px none #383839 !important;
     border-top-style: solid !important;
     color: white !important;
 }
