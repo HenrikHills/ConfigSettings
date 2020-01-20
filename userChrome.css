@@ -1,0 +1,125 @@
+
+:root:not([customizing]) :hover > #nav-bar toolbarbutton,
+:root:not([customizing]) #navigator-toolbox:focus-within #nav-bar toolbarbutton,
+:root:not([customizing]) :hover > #titlebar toolbarbutton{
+    opacity:1 !important;
+    margin-left:0 !important;
+    pointer-events: auto !important;
+}
+
+
+#nav-bar toolbarbutton {
+    margin-left: -30px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: margin-left 100ms var(--animation-easing-function), opacity 100ms var(--animation-easing-function), transform 100ms var(--animation-easing-function) !important;
+}
+
+
+#PersonalToolbar{
+  --uc-bm-height: 20px; /* Might need to adjust if the toolbar has other buttons */
+  --uc-bm-padding: 2px; /* Vertical padding to be applied to bookmarks */
+}
+
+#PersonalToolbar:not([customizing]){
+  margin-bottom: calc(2px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
+  transform: rotateX(90deg);
+  transform-origin: top;
+  transition: transform 100ms linear 100ms !important;
+  z-index: 1;
+}
+
+#PlacesToolbarItems > .bookmark-item{ padding-block: var(--uc-bm-padding) !important; }
+
+/* Show when cursor is over the toolbar area */
+#navigator-toolbox:hover > #PersonalToolbar{
+  transition-delay: 500ms !important;
+  transform: rotateX(0);   
+}
+
+
+/* random style tweaks I like */
+/*
+Remove borders everywhere, some code copied from edge style for firefox
+*/
+ 
+ :root {
+  --tabs-border: transparent !important;
+}
+ 
+.tabbrowser-tab::after, .tabbrowser-tab::before {
+   border-left: none !important;
+}
+ 
+#urlbar, .searchbar-textbox {
+  border: none !important;
+  box-shadow: none !important;
+}
+ 
+#nav-bar {
+    margin-top: 0px !important;
+    border-top: 0px !important;
+    box-shadow: none !important;
+}
+ 
+
+#urlbar {
+    margin-left: 1px !important;
+    margin-right: 1px !important;
+}
+ 
+.tab-background {
+    border-top: none !important;
+}
+ 
+.tabs-newtab-button, #new-tab-button, #alltabs-button {
+    color: rgba(240, 240, 240, 1);
+    border-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+
+/* Make tab close buttons appear on tab hover, replacing the tab icon */
+.tabbrowser-tab .tab-close-button {
+  -moz-box-ordinal-group: 0 !important;
+  margin: 2px 6px 0px 0px !important;
+}
+
+.tabbrowser-tab .tab-close-button {
+  display: none !important;
+}
+
+.tabbrowser-tab:not([pinned="true"]):hover .tab-icon-image,
+.tabbrowser-tab:not([pinned="true"]):hover .tab-throbber {
+  display: none;
+}
+
+.tabbrowser-tab:not([pinned="true"]):hover .tab-close-button {
+  display: -moz-box !important;
+}
+ 
+/*
+ * Underlines and dims unloaded tabs
+ *
+ * Contributor(s): josemam
+ */
+ 
+.tabbrowser-tab[pending] {
+ font-style: italic;
+}
+ 
+ 
+toolbarspring {
+    min-width: 8px;
+    max-width: 8px;
+}
+
+/*
+Make the hover-thing (down left corner) turn black instead of white
+*/
+#statuspanel-label {
+    background-color: black !important;
+    border: 1px none black !important;
+    border-top-style: solid !important;
+    color: white !important;
+}
