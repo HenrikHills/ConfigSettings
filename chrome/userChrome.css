@@ -26,17 +26,11 @@
 :root:not([customizing]) #navigator-toolbox:focus-within #nav-bar toolbarbutton,
 :root:not([customizing]) :hover > #titlebar toolbarbutton{
     opacity:1 !important;
-    pointer-events: auto !important;
 }
 
 #nav-bar toolbarbutton {
     opacity: 0 !important;
-    pointer-events: none !important;
-    transition: margin-left 100ms var(--animation-easing-function), 
-      opacity 500ms var(--animation-easing-function), 
-      transform 100ms var(--animation-easing-function) !important;
 }
-
 
 /*
 **************************
@@ -109,7 +103,7 @@
   transform: translateY(0);
   position: relative;
   z-index: 10;
-  padding-block: 3px !important;
+  padding-block: 0px !important;
   padding-inline: 0px !important;
   margin-inline: 5px !important;
 }
@@ -134,9 +128,9 @@
 
 /* URL - Hamburgermenu */
 #PanelUI-button {
-  -moz-box-ordinal-group: 0;
   border-left: none !important;
-  position: absolute;
+  margin-right: 150px !important;
+  margin-left: -160px !important;
 }
 
 /*
