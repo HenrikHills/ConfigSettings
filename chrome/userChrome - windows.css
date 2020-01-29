@@ -1,0 +1,76 @@
+ /*
+Hide/Show navigation buttons when cursor is over the toolbar area
+*/
+:root:not([customizing]) :hover > #nav-bar toolbarbutton,
+:root:not([customizing]) #navigator-toolbox:focus-within #nav-bar toolbarbutton,
+:root:not([customizing]) :hover > #titlebar toolbarbutton{
+    opacity:1 !important;
+    margin-left:0 !important;
+    pointer-events: auto !important;
+}
+
+#nav-bar toolbarbutton {
+    margin-left: -30px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: margin-left 100ms var(--animation-easing-function), opacity 100ms var(--animation-easing-function), transform 100ms var(--animation-easing-function) !important;
+}
+
+
+/* 
+Hide/Show bookmarks when cursor is over the toolbar area 
+*/
+#navigator-toolbox:hover > #PersonalToolbar{
+  transition-delay: 250ms !important;
+  transform: rotateX(0);   
+}
+
+#PersonalToolbar{
+  --uc-bm-height: 20px; /* Might need to adjust if the toolbar has other buttons */
+  --uc-bm-padding: 2px; /* Vertical padding to be applied to bookmarks */
+}
+
+#PersonalToolbar:not([customizing]){
+  margin-bottom: calc(2px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
+  transform: rotateX(90deg);
+  transform-origin: top;
+  transition: transform 100ms linear 100ms !important;
+  transition-delay: 2000ms !important;
+  z-index: 1;
+}
+
+#PlacesToolbarItems > .bookmark-item{ padding-block: var(--uc-bm-padding) !important; }
+
+
+/* 
+removes space before tabs start
+*/
+.titlebar-spacer[type="pre-tabs"],
+.titlebar-spacer[type="post-tabs"] {
+      display: none !important;
+}
+
+
+/* 
+hide tab close buttons when unfocused
+*/
+.tabbrowser-tab .tab-close-button {
+  display: none !important;
+}
+
+/*
+show tab close button when focused
+*/
+.tabbrowser-tab:not([pinned="true"]):hover .tab-close-button {
+  display: -moz-box !important;
+}
+
+/*
+Make the hover-thing (down left corner) turn black instead of white
+*/
+#statuspanel-label {
+    background-color: #383839 !important;
+    border: 1px none #383839 !important;
+    border-top-style: solid !important;
+    color: white !important;
+}

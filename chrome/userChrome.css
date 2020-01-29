@@ -1,76 +1,373 @@
- /*
-Hide/Show navigation buttons when cursor is over the toolbar area
-*/
+/* From the top first - Main toolbar with url */
+#nav-bar {
+  -moz-box-ordinal-group: 1 !important;
+}
+
+/* From the top second - Bookmarks toolbar */
+#PersonalToolbar {
+  -moz-box-ordinal-group: 2 !important;
+}
+
+/* From the top third - Tabs bar */
+#titlebar {
+  -moz-box-ordinal-group: 3 !important;
+}
+
+/* MINIMIZE, MAXIMIZE, CLOSE buttons */
+.titlebar-buttonbox-container {
+  position: fixed !important;
+  display: block !important;
+  top: 15px !important;
+  right: 0px !important;
+}
+
+/* AutoHide buttons on toolbar */
 :root:not([customizing]) :hover > #nav-bar toolbarbutton,
 :root:not([customizing]) #navigator-toolbox:focus-within #nav-bar toolbarbutton,
 :root:not([customizing]) :hover > #titlebar toolbarbutton{
     opacity:1 !important;
-    margin-left:0 !important;
     pointer-events: auto !important;
 }
 
 #nav-bar toolbarbutton {
-    margin-left: -30px !important;
     opacity: 0 !important;
     pointer-events: none !important;
-    transition: margin-left 100ms var(--animation-easing-function), opacity 100ms var(--animation-easing-function), transform 100ms var(--animation-easing-function) !important;
+    transition: margin-left 100ms var(--animation-easing-function), 
+      opacity 500ms var(--animation-easing-function), 
+      transform 100ms var(--animation-easing-function) !important;
 }
 
 
-/* 
-Hide/Show bookmarks when cursor is over the toolbar area 
+/*
+**************************
+**     URLBAR START     **
+**************************
 */
-#navigator-toolbox:hover > #PersonalToolbar{
-  transition-delay: 250ms !important;
-  transform: rotateX(0);   
+
+/* URL - selected url/search etc */
+::-moz-selection {
+  background-color: #0c0c0c !important;
 }
 
-#PersonalToolbar{
-  --uc-bm-height: 20px; /* Might need to adjust if the toolbar has other buttons */
-  --uc-bm-padding: 2px; /* Vertical padding to be applied to bookmarks */
+/* URL - general color */
+#urlbar {
+  box-shadow: 0 0 3px transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 15px !important;
+  background: #414b4c !important;
+  margin-top: 1px !important;
+  margin-bottom: -1px !important;
 }
 
-#PersonalToolbar:not([customizing]){
-  margin-bottom: calc(2px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
-  transform: rotateX(90deg);
-  transform-origin: top;
-  transition: transform 100ms linear 100ms !important;
-  transition-delay: 2000ms !important;
-  z-index: 1;
+#urlbar[focused] {
+  box-shadow: 0 0 3px transparent !important;
+  border: 1px solid transparent !important;
 }
 
-#PlacesToolbarItems > .bookmark-item{ padding-block: var(--uc-bm-padding) !important; }
+/* URL - width of Urlbar */
+#urlbar-container {
+  max-width: 900px !important;
+}
+
+/* URL - ABOVE - Distance between edge of window and start of URL bar - ABOVE*/
+#nav-bar {
+  padding-top: 8px !important;
+}
+
+#urlbar[open] {
+  border-bottom-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+/* URL - Space between URL/search suggestions when typing into URLbar */
+.urlbarView-row {
+  padding: 6px 0px !important;
+}
 
 
-/* 
-removes space before tabs start
+#urlbar-results .urlbarView-row {
+  background: transparent !important;
+}
+
+/* URL - Search with *searchengine* */
+.urlbarView-action {
+  color: #CA6924 !important;
+}
+
+/* URL - Main location */
+#nav-bar-customization-target {
+  -moz-box-pack: center !important;
+}
+
+/* URL - */
+#urlbar-results {
+  max-width: 100% !important;
+}
+
+/* URL - Main Location */
+#urlbar-container {
+  transform: translateY(0);
+  position: relative;
+  z-index: 10;
+  padding-block: 3px !important;
+  padding-inline: 0px !important;
+  margin-inline: 5px !important;
+}
+
+/* URL - Search Suggestions */
+#urlbar-results {
+  max-width: 100% !important;
+  background-color: #414b4c !important;
+}
+
+/* URL - Search Suggestion Container*/
+.urlbarView {
+  top: calc(100% - 5px) !important;
+  width: 100%;
+  border-width: 0 !important;
+  border-radius: 0 0 4px 4px !important;
+}
+
+#nav-bar-customization-target {
+  overflow: visible !important;
+}
+
+/* URL - Hamburgermenu */
+#PanelUI-button {
+  -moz-box-ordinal-group: 0;
+  border-left: none !important;
+  position: absolute;
+}
+
+/*
+*************************
+**     URLBAR STOP     **
+*************************
 */
+
+
+
+/*
+************************
+**     TABS START     **
+************************
+*/
+
+/* TABS - loading icon */
+.tab-throbber::before {
+  fill: #c6c6c6 !important;
+  opacity: 1 !important;
+}
+
+/* TABS - Tab Width*/
+.tabbrowser-tab[fadein] {
+  max-width: 100vw !important
+}
+
+/* TABS - FavIcon, Icon on tabs*/
+.tab-icon-image {
+  display: block !important;
+}
+
+/* TABS - make unfocused tabs a bit smaller */
+#TabsToolbar {
+  color: #a6a6a8 !important;
+  margin-top: 0px !important;
+  margin-bottom: 9px !important;
+}
+
+/* TABS - "reserve" space for tabs */
+#titlebar {
+  margin-top: -9px !important;
+  margin-bottom: -9px !important;
+}
+
+/* TABS - Hide "Current" tab Colored line*/
+#tabbrowser-tabs {
+  --tab-line-color: transparent !important;
+}
+
+/*TABS - Hide ugly effect on hover */
+.tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="true"]):not([multiselected]) {
+  background-color: block !important; 
+  margin-top: -5px !important;
+}
+
+.tabbrowser-tab::after {
+  opacity: 0 !important;
+}
+
+.titlebar-spacer[type="pre-tabs"] {
+  border-right: none !important;
+}
+
+.tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-bottom-line {
+  height: 1.3px !important;
+  opacity: .3 !important;
+  margin-bottom: 3px !important;
+}
+
+/* TABS - Make tabs stretch from edge to edge */
 .titlebar-spacer[type="pre-tabs"],
 .titlebar-spacer[type="post-tabs"] {
-      display: none !important;
+  display: none !important;
 }
 
+/* TABS - Centered text on tabs*/
+.tab-label {
+  -moz-box-flex: 1 !important;
+  text-align: center !important;
+}
 
-/* 
-hide tab close buttons when unfocused
-*/
+/* TABS - Make tabs lower (slimmer in height) */
+#tabbrowser-tabs {
+  --tab-min-height: 26px !important;
+  margin-top: 9px !important;
+  height: 26px !important;
+}
+
+/* TABS - Background/"roundness" of newtab button */
+#tabs-newtab-button:hover>.toolbarbutton-icon {
+  border-radius: 15px !important;
+  background: #4a4a4f !important;
+}
+
+/* TABS - Curvature of selected tab*/
+.tab-background[selected="true"] {
+  border-radius: 0px 0px 10px 10px !important;
+}
+
+/* TABS - hide close buttons when unfocused */
 .tabbrowser-tab .tab-close-button {
   display: none !important;
 }
 
-/*
-show tab close button when focused
-*/
+/* TABS - show close button when focused */
 .tabbrowser-tab:not([pinned="true"]):hover .tab-close-button {
   display: -moz-box !important;
 }
 
 /*
-Make the hover-thing (down left corner) turn black instead of white
+**********************
+**     TABS END     **
+**********************
 */
-#statuspanel-label {
-    background-color: #383839 !important;
-    border: 1px none #383839 !important;
-    border-top-style: solid !important;
-    color: white !important;
+
+
+
+/*
+********************************
+**     CONTEXT MENU START     **
+********************************
+*/
+
+/* Context menu - Rightclick*/
+menupopup {
+  -moz-appearance: none !important;
+  background-color: #4a4a4f !important;
+  border: 1px solid #333 !important;
+  margin: -1px 0 0 0 !important;
+  border-radius: 10px !important;
 }
+
+/* Context menu - Rightclick - What mouse is currently hovering */
+menuitem:hover, menugroup:hover, menu:hover {
+  -moz-appearance: none !important;
+  border-radius: 10px !important;
+  background: #5c5c61 !important;
+}
+
+/* Context menu - Rightclick - Separatorline between choices */
+menuseparator {
+  -moz-appearance: none !important;
+  max-height: 1px !important;
+  border: none !important;
+  padding: 0.5px 0 !important;
+  background-color: #5c5c61 !important;
+}
+
+/* Context menu - Rightclick - text */
+menuitem, menu {
+  -moz-appearance: none !important;
+  color: white !important;
+  padding: 1px 1px 2px 11px !important;
+  min-height: 25px !important;
+}
+
+/* Context Menu - Rightclick - navbarbuttons */
+menugroup {
+  padding: 2px !important;
+  background-color: transparent !important;
+}
+
+/* Context Menu - Rightclick - small arrows for submenu */
+.menu-right {
+  -moz-appearance: none !important;
+  padding: 7px !important;
+  margin-right: 6px !important;
+  color: white !important;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(-45deg) scale(.4);
+}
+
+/*
+******************************
+**     CONTEXT MENU END     **
+******************************
+*/
+
+
+
+/*
+********************************
+**     BOOKMARK BAR START     **
+********************************
+*/
+
+/* Bookmark Bar icons*/
+.bookmark-item>.toolbarbutton-icon {
+  display: none !important;
+}
+
+#PlacesToolbarItems>.bookmark-item>.toolbarbutton-icon[label]: {
+  margin-inline-end: 0px !important;
+}
+
+/* Bookmark - clearance/font color etc */
+#PlacesToolbarItems {
+  -moz-box-pack: center;
+  color: #ccccce !important;
+  margin-bottom: 0px !important;
+}
+
+/* Bookmark - hovering a bookmark */
+toolbarbutton.bookmark-item:hover {
+  background-color: #5c5c61 !important;
+  border-radius: 7.5px !important;
+}
+
+.toolbarbutton-1 {
+  --toolbarbutton-hover-background: #424141 !important;
+  --toolbarbutton-active-background: #424141 !important;
+}
+
+
+:root[uidensity="compact"] .urlbarView {
+  margin-top: 2px !important;
+}
+
+:root[uidensity="touch"] .urlbarView {
+  margin-top: 1px !important;
+}
+
+/* Hover over link popup (Lower left corner) */
+#statuspanel #statuspanel-label {
+  -moz-appearance: none !important;
+  background-color: #414b4c !important;
+  color: #fff !important;
+  border: 0px solid gray !important;
+  padding: 4px !important;
+}
+
+
