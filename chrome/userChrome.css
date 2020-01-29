@@ -51,41 +51,19 @@ removes space before tabs start
 }
 
 
-/* Make tab close buttons appear on tab hover, replacing the tab icon */
-.tabbrowser-tab .tab-close-button {
-  -moz-box-ordinal-group: 0 !important;
-  margin: 2px 6px 0px 0px !important;
-}
-
+/* 
+hide tab close buttons when unfocused
+*/
 .tabbrowser-tab .tab-close-button {
   display: none !important;
 }
 
-.tabbrowser-tab:not([pinned="true"]):hover .tab-icon-image,
-.tabbrowser-tab:not([pinned="true"]):hover .tab-throbber {
-  display: none;
-}
-
+/*
+show tab close button when focused
+*/
 .tabbrowser-tab:not([pinned="true"]):hover .tab-close-button {
   display: -moz-box !important;
 }
- 
-
-/*
- * Underlines and dims unloaded tabs
- *
- * Contributor(s): josemam
- */
- 
-.tabbrowser-tab[pending] {
- font-style: italic;
-}
- 
-toolbarspring {
-    min-width: 8px;
-    max-width: 8px;
-}
-
 
 /*
 Make the hover-thing (down left corner) turn black instead of white
