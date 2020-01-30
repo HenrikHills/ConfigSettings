@@ -21,15 +21,17 @@
   right: 0px !important;
 }
 
-/* AutoHide buttons on toolbar */
+/* AUTOHIDE - Show toolbarbutton on hover */
 :root:not([customizing]) :hover > #nav-bar toolbarbutton,
 :root:not([customizing]) #navigator-toolbox:focus-within #nav-bar toolbarbutton,
 :root:not([customizing]) :hover > #titlebar toolbarbutton{
     opacity:1 !important;
 }
 
+/* AUTOHIDE - Hide toolbarbutton*/
 #nav-bar toolbarbutton {
-    opacity: 0 !important;
+  opacity: 0 !important;
+ transition: opacity 750ms var(--animation-easing-function)!important;
 }
 
 /*
@@ -60,7 +62,7 @@
 
 /* URL - width of Urlbar */
 #urlbar-container {
-  max-width: 900px !important;
+  max-width: 700px !important;
 }
 
 /* URL - ABOVE - Distance between edge of window and start of URL bar - ABOVE*/
@@ -95,7 +97,7 @@
 
 /* URL - */
 #urlbar-results {
-  max-width: 100% !important;
+  max-width: 60% !important;
 }
 
 /* URL - Main Location */
@@ -147,6 +149,11 @@
 ************************
 */
 
+/* TABS - Avoid breaking tabs when maximized only */
+:root[sizemode="maximized"] #titlebar { 
+  margin-top: -17px !important; 
+}
+
 /* TABS - loading icon */
 .tab-throbber::before {
   fill: #c6c6c6 !important;
@@ -181,20 +188,22 @@
   --tab-line-color: transparent !important;
 }
 
-/*TABS - Hide ugly effect on hover */
+/* TABS - Hide ugly effect on hover */
 .tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="true"]):not([multiselected]) {
   background-color: block !important; 
   margin-top: -5px !important;
 }
 
+/* TABS - Separator*/
 .tabbrowser-tab::after {
-  opacity: 0 !important;
+  opacity: 0.5 !important;
 }
 
 .titlebar-spacer[type="pre-tabs"] {
   border-right: none !important;
 }
 
+/* TABS - Container-tag (e.g. facebook container)*/
 .tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-bottom-line {
   height: 1.3px !important;
   opacity: .3 !important;
