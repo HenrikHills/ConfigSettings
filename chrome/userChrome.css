@@ -25,13 +25,13 @@
 :root:not([customizing]) :hover > #nav-bar toolbarbutton,
 :root:not([customizing]) #navigator-toolbox:focus-within #nav-bar toolbarbutton,
 :root:not([customizing]) :hover > #titlebar toolbarbutton{
-    opacity:1 !important;
+  opacity:1 !important;
 }
 
 /* AUTOHIDE - Hide toolbarbutton*/
 #nav-bar toolbarbutton {
   opacity: 0 !important;
- transition: opacity 750ms var(--animation-easing-function)!important;
+  transition: opacity 1250ms var(--animation-easing-function)!important;
 }
 
 /*
