@@ -17,29 +17,6 @@ Hide/Show navigation buttons when cursor is over the toolbar area
 }
 
 
-/* 
-Hide/Show bookmarks when cursor is over the toolbar area 
-*/
-#navigator-toolbox:hover > #PersonalToolbar{
-  transition-delay: 250ms !important;
-  transform: rotateX(0);   
-}
-
-#PersonalToolbar{
-  --uc-bm-height: 20px; /* Might need to adjust if the toolbar has other buttons */
-  --uc-bm-padding: 2px; /* Vertical padding to be applied to bookmarks */
-}
-
-#PersonalToolbar:not([customizing]){
-  margin-bottom: calc(2px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
-  transform: rotateX(90deg);
-  transform-origin: top;
-  transition: transform 100ms linear 100ms !important;
-  transition-delay: 2000ms !important;
-  z-index: 1;
-}
-
-#PlacesToolbarItems > .bookmark-item{ padding-block: var(--uc-bm-padding) !important; }
 
 
 /* 
@@ -49,7 +26,6 @@ removes space before tabs start
 .titlebar-spacer[type="post-tabs"] {
       display: none !important;
 }
-
 
 /* 
 hide tab close buttons when unfocused
@@ -66,11 +42,176 @@ show tab close button when focused
 }
 
 /*
-Make the hover-thing (down left corner) turn black instead of white
+Make the hover-thing (down left corner) turn gray instead of white
 */
 #statuspanel-label {
     background-color: #383839 !important;
     border: 1px none #383839 !important;
     border-top-style: solid !important;
     color: white !important;
+}
+
+
+
+/*
+********************************
+**     CONTEXT MENU START     **
+********************************
+*/
+
+/* Context menu - Rightclick*/
+menupopup {
+  -moz-appearance: none !important;
+  background-color: #4a4a4f !important;
+  border: 1px solid #333 !important;
+  margin: -1px 0 0 0 !important;
+  border-radius: 10px !important;
+}
+
+/* Context menu - Rightclick - What mouse is currently hovering */
+menuitem:hover, menugroup:hover, menu:hover {
+  -moz-appearance: none !important;
+  border-radius: 10px !important;
+  background: #5c5c61 !important;
+}
+
+/* Context menu - Rightclick - Separatorline between choices */
+menuseparator {
+  -moz-appearance: none !important;
+  max-height: 1px !important;
+  border: none !important;
+  padding: 0.5px 0 !important;
+  background-color: #5c5c61 !important;
+}
+
+/* Context menu - Rightclick - text */
+menuitem, menu {
+  -moz-appearance: none !important;
+  color: white !important;
+  padding: 1px 1px 2px 11px !important;
+  min-height: 25px !important;
+}
+
+/* Context Menu - Rightclick - navbarbuttons */
+menugroup {
+  padding: 2px !important;
+  background-color: transparent !important;
+}
+
+/* Context Menu - Rightclick - small arrows for submenu */
+.menu-right {
+  -moz-appearance: none !important;
+  padding: 7px !important;
+  margin-right: 6px !important;
+  color: white !important;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(-45deg) scale(.4);
+}
+
+/*
+******************************
+**     CONTEXT MENU END     **
+******************************
+*/
+
+
+/*
+********************************
+**     BOOKMARK BAR START     **
+********************************
+*/
+
+/* Bookmark FavIcons*/
+.bookmark-item>.toolbarbutton-icon {
+  display: none !important;
+}
+
+#PlacesToolbarItems>.bookmark-item>.toolbarbutton-icon[label]: {
+  margin-inline-end: 0px !important;
+}
+
+/* Bookmark - clearance/font color etc */
+#PlacesToolbarItems {
+  -moz-box-pack: center;
+  color: #ccccce !important;
+  margin-bottom: 0px !important;
+}
+
+/* Bookmark - hovering a bookmark */
+toolbarbutton.bookmark-item:hover {
+  background-color: #5c5c61 !important;
+  border-radius: 7.5px !important;
+}
+
+.toolbarbutton-1 {
+  --toolbarbutton-hover-background: #424141 !important;
+  --toolbarbutton-active-background: #424141 !important;
+}
+
+/*
+********************************
+**     BOOKMARK BAR END       **
+********************************
+*/
+
+/*
+**************************
+**     URLBAR START     **
+**************************
+*/
+
+/* URL - selected url/search etc */
+::-moz-selection {
+  background-color: #0c0c0c !important;
+}
+
+/* URL - general color */
+#urlbar {
+  box-shadow: 0 0 3px transparent !important;
+  border: 0px solid transparent !important;
+  border-radius: 15px !important;
+  background: #414b4c !important;
+}
+
+/* URL - width of Urlbar */
+#urlbar-container {
+  max-width: 1000px !important;
+}
+
+/* URL - Space between URL/search suggestions when typing into URLbar */
+.urlbarView-row {
+  padding: 6px 0px !important;
+}
+
+/* URL - Search with *searchengine* */
+.urlbarView-action {
+  color: #CA6924 !important;
+}
+
+/* URL - Main location */
+#nav-bar-customization-target {
+  -moz-box-pack: center !important;
+}
+
+/* URL - Main Location */
+#urlbar-container {
+  transform: translateY(0);
+  position: relative;
+  z-index: 10;
+}
+
+/* URL - Search Suggestions */
+#urlbar-results {
+  max-width: 100% !important;
+  border-radius: 15px !important;
+  background-color: #414b4c !important;
+}
+
+/* URL - Search Suggestion Container*/
+.urlbarView {
+  top: calc(100% - 5px) !important;
+  width: 100%;
+  border-width: 0 !important;
+  border-radius: 15px !important;
 }
