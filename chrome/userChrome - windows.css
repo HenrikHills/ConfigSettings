@@ -17,28 +17,12 @@ Hide/Show navigation buttons when cursor is over the toolbar area
 }
 
 
-
-
 /* 
 removes space before tabs start
 */
 .titlebar-spacer[type="pre-tabs"],
 .titlebar-spacer[type="post-tabs"] {
       display: none !important;
-}
-
-/* 
-hide tab close buttons when unfocused
-*/
-.tabbrowser-tab .tab-close-button {
-  display: none !important;
-}
-
-/*
-show tab close button when focused
-*/
-.tabbrowser-tab:not([pinned="true"]):hover .tab-close-button {
-  display: -moz-box !important;
 }
 
 /*
@@ -52,6 +36,82 @@ Make the hover-thing (down left corner) turn gray instead of white
 }
 
 
+/*
+************************
+**     TABS START     **
+************************
+*/
+
+/* TABS - loading icon */
+.tab-throbber::before {
+  fill: #c6c6c6 !important;
+  opacity: 1 !important;
+}
+
+/* TABS - FavIcon, Icon on tabs*/
+.tab-icon-image {
+  display: block !important;
+}
+
+/* TABS - Hide "Current" tab Colored line*/
+#tabbrowser-tabs {
+  --tab-line-color: transparent !important;
+}
+
+
+/* TABS - Separator*/
+.tabbrowser-tab::after {
+  opacity: 0.1 !important;
+}
+
+.titlebar-spacer[type="pre-tabs"] {
+  border-right: none !important;
+}
+
+/* TABS - Container-tag (e.g. facebook container)*/
+.tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-bottom-line {
+  height: 1.3px !important;
+  opacity: .3 !important;
+  margin-bottom: 3px !important;
+}
+
+/* TABS - Background/"roundness" of newtab button */
+#tabs-newtab-button:hover>.toolbarbutton-icon {
+  border-radius: 15px !important;
+  background: #4a4a4f !important;
+}
+
+/* TABS - Curvature of current tab*/
+.tab-background[selected="true"] {
+  border-radius: 10px 10px 0px 0px !important;
+}
+
+/* TABS - Hide ugly effect on hover */
+.tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="true"]):not([multiselected]) {
+  background-color: block !important; 
+  margin-top: -5px !important;
+  border-radius: 15px 15px 0px 0px !important;
+}
+
+/* 
+hide tab close buttons when unfocused
+*/
+.tabbrowser-tab .tab-close-button {
+  display: none !important;
+}
+
+/*
+show tab close button when focused and not pinned
+*/
+.tabbrowser-tab:not([pinned="true"]):hover .tab-close-button {
+  display: block !important;
+}
+
+/*
+**********************
+**     TABS END     **
+**********************
+*/
 
 /*
 ********************************
@@ -108,7 +168,6 @@ menugroup {
   border-width: 0 2px 2px 0;
   transform: rotate(-45deg) scale(.4);
 }
-
 /*
 ******************************
 **     CONTEXT MENU END     **
@@ -148,12 +207,12 @@ toolbarbutton.bookmark-item:hover {
   --toolbarbutton-hover-background: #424141 !important;
   --toolbarbutton-active-background: #424141 !important;
 }
-
 /*
 ********************************
 **     BOOKMARK BAR END       **
 ********************************
 */
+
 
 /*
 **************************
