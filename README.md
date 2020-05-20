@@ -8,4 +8,4 @@ By adding one of the [userChrome.css](https://github.com/HenrikHills/dotSlashFil
 <img src="assets/userChrome_safari.gif" width=800/>
 
 ## userChrome - windows
-<img src="assets/userChrome_win.gif" width=800/>
+<img src="assets/userChrome_windows.gif" width=800/>
