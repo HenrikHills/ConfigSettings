@@ -1,10 +1,9 @@
-import sys
-import os
-import inspect
+import os, inspect
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
 
-user_input = raw_input("Enter the path of your file:\n")
-
-assert os.path.exists(user_input), "\nI did not find the file at, "+str(user_input)
+Tk().withdraw()
+user_input = askopenfilename()
 
 with open(user_input) as f:
      content = f.readlines()
