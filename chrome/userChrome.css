@@ -333,7 +333,7 @@ menugroup {
   display: none !important;
 }
 
-#PlacesToolbarItems>.bookmark-item>.toolbarbutton-icon[label]: {
+#PlacesToolbarItems>.bookmark-item>.toolbarbutton-icon[label]{
   margin-inline-end: 0px !important;
 }
 
