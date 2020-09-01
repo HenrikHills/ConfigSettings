@@ -8,14 +8,14 @@ user_input = askopenfilename()
 with open(user_input, encoding="utf-8") as f:
      oldList = f.readlines()
 
-bad_words = [' ']
+bad_words = [' ', ';']
 
 oldList = [x for x in oldList if not x.startswith('#')]
 
 decision = input("Remove \"0.0.0.0\" and spaces from list? Y/N \n")
 if decision.upper() == "Y":
     print("Removing ... ")
-    oldList = [w.replace("0.0.0.0", "").replace('\t', "").replace("127.0.0.1", "") for w in oldList]
+    oldList = [w.replace("0.0.0.0 ", "").replace('\t', "").replace("127.0.0.1 ", "") for w in oldList]
 else:
     print("Not removing \"0.0.0.0\"")
 
