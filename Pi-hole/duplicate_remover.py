@@ -8,7 +8,7 @@ user_input = askopenfilename()
 with open(user_input, encoding="utf-8") as f:
      oldList = f.readlines()
 
-bad_words = [' ', ';']
+bad_words = [' ', ';', ':']
 
 oldList = [x for x in oldList if not x.startswith('#')]
 
